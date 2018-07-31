@@ -52,15 +52,21 @@
 #include "nodelet/NodeletLoad.h"
 #include "nodelet/NodeletUnload.h"
 
-#ifdef _WIN32
-#include <Rpc.h>
-#else
+#ifndef _WIN32
 #include <uuid/uuid.h>
+#else
+#include <rpc.h>
 #endif
 
 std::string genId()
 {
-#ifdef _WIN32
+#ifndef _WIN32
+  uuid_t uuid;
+  uuid_generate_random(uuid);
+  char uuid_str[40];
+  uuid_unparse(uuid, uuid_str);
+  return std::string(uuid_str);
+#else
   UUID uuid;
   UuidCreate(&uuid);
   unsigned char *str;
@@ -68,12 +74,6 @@ std::string genId()
   std::string return_string(reinterpret_cast<char *>(str));
   RpcStringFreeA(&str);
   return return_string;
-#else
-  uuid_t uuid;
-  uuid_generate_random(uuid);
-  char uuid_str[40];
-  uuid_unparse(uuid, uuid_str);
-  return std::string(uuid_str);
 #endif
 }
 
