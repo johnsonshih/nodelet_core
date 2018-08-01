@@ -69,7 +69,7 @@ std::string genId()
 #else
   UUID uuid;
   UuidCreate(&uuid);
-  unsigned char *str;
+  RPC_CSTR str;
   UuidToStringA(&uuid, &str);
   std::string return_string(reinterpret_cast<char *>(str));
   RpcStringFreeA(&str);
