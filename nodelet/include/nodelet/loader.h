@@ -36,7 +36,7 @@
 #ifndef NODELET_LOADER_H
 #define NODELET_LOADER_H
 
-#include "macros.h"
+#include "nodeletdecl.h"
 
 #include <map>
 #include <vector>

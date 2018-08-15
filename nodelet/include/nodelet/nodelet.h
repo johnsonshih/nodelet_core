@@ -30,7 +30,7 @@
 #ifndef NODELET_NODELET_H
 #define NODELET_NODELET_H
 
-#include "macros.h"
+#include "nodeletdecl.h"
 #include "exception.h"
 
 #include <string>

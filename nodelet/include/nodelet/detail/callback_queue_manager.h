@@ -30,7 +30,7 @@
 #ifndef NODELET_CALLBACK_QUEUE_MANAGER_H
 #define NODELET_CALLBACK_QUEUE_MANAGER_H
 
-#include "nodelet/macros.h"
+#include "nodelet/nodeletdecl.h"
 
 #include <ros/types.h>
 

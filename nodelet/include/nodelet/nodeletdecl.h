@@ -25,8 +25,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef NODELET_MACROS_H
-#define NODELET_MACROS_H
+#ifndef NODELETDECL_H
+#define NODELETDECL_H
 
 #include <ros/macros.h>
 
@@ -40,6 +40,6 @@
   #define NODELETLIB_DECL
 #endif
 
-#endif // NODELET_MACROS_H
+#endif // NODELETDECL_H
 
 
