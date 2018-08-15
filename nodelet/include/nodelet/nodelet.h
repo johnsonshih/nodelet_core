@@ -30,6 +30,7 @@
 #ifndef NODELET_NODELET_H
 #define NODELET_NODELET_H
 
+#include "macros.h"
 #include "exception.h"
 
 #include <string>
@@ -178,7 +179,7 @@ public:
   {}
 };
 
-class Nodelet
+class NODELETLIB_DECL Nodelet
 {
   // Protected data fields for use by the subclass.
 protected:
