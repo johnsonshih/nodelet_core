@@ -50,7 +50,7 @@ if(CATKIN_ENABLE_TESTING)
   # Not a real test. Tries to measure overhead of CallbackQueueManager.
   add_executable(benchmark src/benchmark.cpp)
   target_link_libraries(benchmark ${BOOST_LIBRARIES}
-                                  ${PROJECT_NAME}
+                                  ${catkin_LIBRARIES}
   )
 
   add_executable(create_instance_cb_error src/create_instance_cb_error.cpp)
