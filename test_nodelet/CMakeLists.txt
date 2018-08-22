@@ -22,7 +22,9 @@ if(CATKIN_ENABLE_TESTING)
   add_rostest(test_loader.launch)
 
   catkin_add_gtest(test_callback_queue_manager src/test_callback_queue_manager.cpp)
-  target_link_libraries(test_callback_queue_manager ${BOOST_LIBRARIES} ${catkin_LIBRARIES})
+  if (TARGET test_callback_queue_manager)
+    target_link_libraries(test_callback_queue_manager ${BOOST_LIBRARIES} ${catkin_LIBRARIES})
+  endif()
 
   add_executable(test_console EXCLUDE_FROM_ALL test/test_console.cpp)
   target_link_libraries(test_console ${catkin_LIBRARIES} ${GTEST_LIBRARIES})
@@ -35,17 +37,23 @@ if(CATKIN_ENABLE_TESTING)
   add_rostest_gtest(test_nodehandles_different_namespaces
                     test/test_nodehandles_different_namespaces.test
                     test/test_nodehandles_different_namespaces.cpp)
-  target_link_libraries(test_nodehandles_different_namespaces ${catkin_LIBRARIES})
+  if (TARGET test_nodehandles_different_namespaces)
+    target_link_libraries(test_nodehandles_different_namespaces ${catkin_LIBRARIES})
+  endif()
 
   add_rostest_gtest(test_nodehandles_same_namespaces
                     test/test_nodehandles_same_namespaces.test
                     test/test_nodehandles_same_namespaces.cpp)
-  target_link_libraries(test_nodehandles_same_namespaces ${catkin_LIBRARIES})
+  if (TARGET test_nodehandles_same_namespaces)
+    target_link_libraries(test_nodehandles_same_namespaces ${catkin_LIBRARIES})
+  endif()
 
   add_rostest_gtest(test_nodehandles_manager_namespaced
                     test/test_nodehandles_manager_namespaced.test
                     test/test_nodehandles_manager_namespaced.cpp)
-  target_link_libraries(test_nodehandles_manager_namespaced ${catkin_LIBRARIES})
+  if (TARGET test_nodehandles_manager_namespaced)
+    target_link_libraries(test_nodehandles_manager_namespaced ${catkin_LIBRARIES})
+  endif()
 
   # Not a real test. Tries to measure overhead of CallbackQueueManager.
   add_executable(benchmark src/benchmark.cpp)
